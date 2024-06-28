@@ -1,12 +1,17 @@
 public class Aluno {
-    private int matricula;
+    private String matricula;
     private String nome;
-    private double nota;
+    private String nota;
     
-    public int getMatricula() {
+    public Aluno(String matricula, String nome, String nota) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.nota = nota;
+    }
+    public String getMatricula() {
         return matricula;
     }
-    public void setMatricula(int matricula) {
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
     public String getNome() {
@@ -15,21 +20,21 @@ public class Aluno {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public double getNota() {
+    public String getNota() {
         return nota;
     }
-    public void setNota(double nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
-    public Aluno(int matricula, String nome, double nota) {
-        this.matricula = matricula;
-        this.nome = nome;
-        this.nota = nota;
-    }
+
     @Override
     public String toString() {
         return "Aluno [matricula=" + matricula + ", nome=" + nome + ", nota=" + nota + "]";
     }
 
+    public String toCSV(){
+        return matricula + ";" + nome + ";" + nota + ";";
+        
+    }
     
 }
