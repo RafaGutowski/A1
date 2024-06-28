@@ -12,16 +12,15 @@ public class LeituraDeAlunos {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
 
+            br.readLine();
+
             while ((linha = br.readLine()) != null) {
-                // Separar os dados da linha
                 String[] dados = linha.split(",");
 
-                // Converter para os tipos apropriados
                 int matricula = Integer.parseInt(dados[0].trim());
                 String nome = dados[1].trim();
                 double nota = Double.parseDouble(dados[2].trim());
 
-                // Criar objeto Aluno e adicionar à lista
                 Aluno aluno = new Aluno(matricula, nome, nota);
                 listaDeAlunos.add(aluno);
             }
