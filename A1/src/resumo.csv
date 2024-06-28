@@ -1,2 +1,2 @@
-quantidadeAlunos;quantidadeAprovados;quantidadeReprovados;menorNota;maiorNota;mediaGeral
+TotalAlunos; quantidadeAprovado;TotalReprovados;menorNota;maiorNota;mediaGeral
 66;36;30;0.0;10.0;5.536363636363636

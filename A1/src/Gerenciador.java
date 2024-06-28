@@ -36,11 +36,11 @@ public class Gerenciador {
         return listaDeAlunos;
     }
 
-    private int calcularQuantidadeAlunos(List<Aluno> alunos) {
+    private int calcularAlunos(List<Aluno> alunos) {
         return alunos.size();
     }
 
-    private int calcularQuantidadeAprovados(List<Aluno> alunos) {
+    private int calcularAprovados(List<Aluno> alunos) {
         int count = 0;
         for (Aluno aluno : alunos) {
             if (Double.parseDouble(String.valueOf(aluno.getNota()).replace(",", ".")) >= 6.0) {
@@ -95,21 +95,21 @@ public class Gerenciador {
             FileWriter arquivoGravar = new FileWriter(arquivoResumo);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
-            int quantidadeAlunos = calcularQuantidadeAlunos(alunos);
-            int quantidadeAprovados = calcularQuantidadeAprovados(alunos);
-            int quantidadeReprovados = Reprovados(alunos);
+            int TotalAlunos = calcularAlunos(alunos);
+            int TotalAprovados = calcularAprovados(alunos);
+            int TotalReprovados = Reprovados(alunos);
             double menorNota = MenorNota(alunos);
             double maiorNota = MaiorNota(alunos);
             double mediaGeral = MediaGeral(alunos);
 
             gravador.println(
-                    "quantidadeAlunos;quantidadeAprovados;quantidadeReprovados;menorNota;maiorNota;mediaGeral");
+                    "TotalAlunos; quantidadeAprovado;TotalReprovados;menorNota;maiorNota;mediaGeral");
             gravador.println(
-                    quantidadeAlunos + ";" +
-                            quantidadeAprovados + ";" +
-                            quantidadeReprovados + ";" +
-                            menorNota + ";" +
-                            maiorNota + ";" +
+                    TotalAlunos + "; " +
+                            TotalAprovados + "; " +
+                            TotalReprovados + "; " +
+                            menorNota + "; " +
+                            maiorNota + "; " +
                             mediaGeral);
 
             gravador.close();
